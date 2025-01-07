@@ -24,7 +24,7 @@ def retrieve(user_question: str):
         },
         {
             "input": "Find the energy, protein, and fat content of chicken breast.",
-            "query": 'SELECT "Main food", "Energy (kcal)", "Protein (g)", "Total Fat (g)" FROM "nutrition" WHERE "Main food description" LIKE \'%chicken breast%\';'
+            "query": 'SELECT "Main food", "Energy (kcal)", "Protein (g)", "Total Fat (g)" FROM "nutrition" WHERE "Main food" LIKE \'%chicken breast%\';'
         },
         {
             "input": "Which food has the lowest fat content?",
@@ -34,6 +34,26 @@ def retrieve(user_question: str):
             "input": "What is the average protein content of foods that contain more than 200 kcal energy?",
             "query": 'SELECT AVG(CAST("Protein (g)" AS FLOAT)) AS "Average Protein" FROM "nutrition" WHERE CAST("Energy (kcal)" AS FLOAT) > 200;'
         },
+        {
+            "input": "List foods that are healthy",
+            "query": 'SELECT "Main food", "Energy (kcal)", "Fiber, total dietary (g)", "Sugars, total\n(g)","Total Fat (g)","Protein (g)" FROM "nutrition" WHERE (CAST("Energy (kcal)" AS FLOAT) < 200) AND (CAST("Fiber, total dietary (g)" AS FLOAT) > 3) AND (CAST("Sugars, total\n(g)" AS FLOAT) < 5) AND (CAST("Total Fat (g)" AS FLOAT) < 10) AND (CAST("Protein (g)" AS FLOAT) > 5);'
+        },
+        {
+            "input" : "List drinks that alcohol-free",
+            "query" : '''SELECT "Main food", "Alcohol (g)" FROM nutrition WHERE (CAST("Alcohol (g)" AS FLOAT) = 0 OR "Alcohol (g)" IS NULL) AND "WWEIA Category" LIKE '%drink%' ORDER BY "Main food";'''
+        },
+        {
+            "input" : "List 5 alcoholic drinks",
+            "query" : 'SELECT "Main food", "Alcohol (g)" FROM nutrition WHERE "WWEIA Category" IN (\'Beer\', \'Liquor and cocktails\',\'Wine\') ORDER BY RANDOM() LIMIT 5;'
+        },
+        {
+            "input" : 'Find foods with the highest cholesterol content',
+            "query" : 'SELECT "Main food", "Cholesterol (mg)" FROM "nutrition" ORDER BY CAST("Cholesterol (mg)" AS FLOAT) DESC LIMIT 5;'
+        },
+        {
+            "input" : "What's the nutritional value of pineapple",
+            "query" : 'SELECT "Main food", "Energy (kcal)", "Protein (g)", "Total Fat (g)", "Carbohydrate (g)", "Fiber, total dietary (g)", "Sugars, total (g)" FROM "nutrition" WHERE "Main food" LIKE "%pineapple%";'
+        }
     ]
 
     # Initialize the embedding model and semantic similarity selector
@@ -114,5 +134,5 @@ def calculate_daily_averages_with_dates():
         nutrient = row["Nutrient"]
         avg_value = row["AverageValue"]
         response += f"{nutrient}: {avg_value:.2f}\n"
-
+    print('finished scanning db')
     return response
