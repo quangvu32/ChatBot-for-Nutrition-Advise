@@ -6,6 +6,7 @@ from langchain_community.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain_core.example_selectors import SemanticSimilarityExampleSelector
 import re
+import time
 
 def retrieve(user_question: str):
     print("start retrieving")
@@ -21,6 +22,10 @@ def retrieve(user_question: str):
         {
             "input": "List foods that have more than 10 grams of protein and less than 20 grams of carbohydrates.",
             "query": 'SELECT "Main food", "Protein (g)", "Carbohydrate (g)" FROM "nutrition" WHERE CAST("Protein (g)" AS FLOAT) > 10 AND CAST("Carbohydrate (g)" AS FLOAT) < 20;'
+        },
+        {
+            "input": "Find the energy,fiber and carbonhydrate content of brocolli.",
+            "query": 'SELECT "Main food", "Energy (kcal)", "Fiber" ,"Carbohydrate (g)" FROM "nutrition" WHERE "Main food" LIKE \'%brocolli%\';'
         },
         {
             "input": "Find the energy, protein, and fat content of chicken breast.",
@@ -48,12 +53,24 @@ def retrieve(user_question: str):
         },
         {
             "input" : 'Find foods with the highest cholesterol content',
-            "query" : 'SELECT "Main food", "Cholesterol (mg)" FROM "nutrition" ORDER BY CAST("Cholesterol (mg)" AS FLOAT) DESC LIMIT 5;'
+            "query" : 'SELECT "Main food", "Cholesterol (mg)" FROM "nutrition" ORDER BY CAST("Cholesterol (mg)" AS FLOAT) DESC LIMIT 7;'
         },
         {
             "input" : "What's the nutritional value of pineapple",
             "query" : 'SELECT "Main food", "Energy (kcal)", "Protein (g)", "Total Fat (g)", "Carbohydrate (g)", "Fiber, total dietary (g)", "Sugars, total (g)" FROM "nutrition" WHERE "Main food" LIKE "%pineapple%";'
-        }
+        },
+        {
+            "input" : "What's the nutritional value of bacon",
+            "query" : 'SELECT "Main food", "Energy (kcal)", "Protein (g)", "Total Fat (g)", "Carbohydrate (g)", "Fiber, total dietary (g)", "Sugars, total (g)" FROM "nutrition" WHERE "Main food" LIKE "%bacon%";'
+        },
+        {
+            "input": "Find the energy, protein, and fat content of 150g of pork belly.",
+            "query": 'SELECT "Main food", "Energy (kcal)" * 1.5 AS "Energy (kcal)", "Protein (g)" * 1.5 AS "Protein (g)", "Total Fat (g)" * 1.5 AS "Total Fat (g)" FROM "nutrition" WHERE "Main food" LIKE \'%pork belly%\';'
+        },
+        {
+            "input": "Find the energy, protein, and fat content of 500g of strawberries",
+            "query": 'SELECT "Main food", "Energy (kcal)" * 1.5 AS "Energy (kcal)", "Protein (g)" * 1.5 AS "Protein (g)", "Total Fat (g)" * 5 AS "Total Fat (g)" FROM "nutrition" WHERE "Main food" LIKE \'%strawberry%\';'
+        }   
     ]
 
     # Initialize the embedding model and semantic similarity selector
