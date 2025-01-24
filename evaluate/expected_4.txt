@@ -1,0 +1,14 @@
+Vitamin/Mineral	Recommended Dietary Allowance (RDA) or Daily Adequate Intake (AI)* Men women
+Vitamin A	900 mcg	700 mcg
+Vitamin C	90 mg	75 mg
+Vitamin D	15 mcg	15 mcg
+Vitamin E	15 mg	15 mg
+Thiamin (vitamin B1) 1.2 milligrams 1.1 milligrams
+Riboflavin (vitamin B2) 1.3 milligrams 1.1 milligrams
+Pantothenic Acid (vitamin B5) 5 milligrams* 5 milligrams* 
+Vitamin B6 (pyridoxal, pyridoxine, pyridoxamine) Ages 19-50: 1.3 milligrams Ages 51+: 1.7 milligrams Ages 19-50: 1.3 milligrams Ages 51+: 1.5 milligrams
+Biotin (vitamin B7) 30 micrograms* 30 micrograms*
+Folate (Folic acid; vitamin B9)	 400 micrograms 400 micrograms
+Vitamin B12 2.4 micrograms 2.4 micrograms
+Choline	550 milligrams* 450 milligrams*
+Vitamin K (phylloquinone, menadione) 120 micrograms* 90 micrograms* 

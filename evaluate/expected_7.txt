@@ -1,0 +1,79 @@
+For 200 grams of asparagus
+
+Nutrient	Value	%DV
+Calories	40	
+Fats	0.2g	0.3%
+Saturated fats	0.1g	0.4%
+Trans fats	–	
+Cholesterol	0mg	0%
+Sodium	4mg	0.2%
+Carbs	8g	3%
+Net carbs	4g	
+Fiber	4g	15%
+Sugar	4g	
+Protein	4g	
+Calcium	48mg	5%
+Iron	4mg	54%
+Potassium	404mg	9%
+Vitamin D	0μg	0%
+Vitamins and Minerals
+Alpha carotene	18μg	
+Beta carotene	898μg	
+Caffeine	0mg	
+Choline	32mg	6%
+Copper	0.4mg	42%
+Fluoride	–	
+Folate (B9)	104μg	26%
+Lycopene	0μg	
+Magnesium	28mg	7%
+Manganese	0.3mg	14%
+Niacin	2mg	12%
+Pantothenic acid	1mg	11%
+Phosphorus	104mg	15%
+Retinol	0μg	
+Riboflavin (B2)	0.3mg	22%
+Selenium	5μg	8%
+Theobromine	0mg	
+Thiamine	0.3mg	24%
+Vitamin A IU	1512IU	
+Vitamin A	76μg	8%
+Vitamin B12	0μg	0%
+Vitamin B6	0.2mg	14%
+Vitamin C	11mg	12%
+Vitamin D IU	0IU	
+Vitamin D2	–	
+Vitamin D3	–	
+Vitamin E	2mg	15%
+Vitamin K	83μg	69%
+Zinc	1mg	10%
+Sugars
+Sugar	4g	
+Sucrose	0.5g	
+Glucose	1g	
+Fructose	2g	
+Lactose	0g	
+Maltose	0g	
+Galactose	0g	
+Saturated fats	0.1g	0.4%
+Monounsaturated fats	0g	
+Polyunsaturated fats	0.1g	
+Trans fats	–	
+Alanine	0.2g	
+Arginine	0.2g	
+Aspartic acid	1g	
+Cystine	0.1g	
+Glutamic acid	0.5g	
+Glycine	0.2g	
+Histidine	0.1g	
+Hydroxyproline	–	
+Isoleucine	0.2g	
+Leucine	0.3g	
+Lysine	0.2g	
+Methionine	0.1g	
+Phenylalanine	0.2g	
+Proline	0.1g	
+Serine	0.2g	
+Threonine	0.2g	
+Tryptophan	0.1g	
+Tyrosine	0.1g	
+Valine	0.2g	
