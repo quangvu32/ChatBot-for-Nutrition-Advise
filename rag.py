@@ -1,7 +1,7 @@
 import requests
 from sentence_transformers import SentenceTransformer
 import faiss
-
+import time
 embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 def wiki_search(query: str):
@@ -93,6 +93,7 @@ def semantic_search(query, chunks, index):
     return [chunks[i] for i in indices[0]]
 
 def searcher(query : str):
+    start_time = time.time()
     search_result = wiki_search(query)
     if "info" in search_result:
         #print("Original Search Result:", search_result)
@@ -102,4 +103,6 @@ def searcher(query : str):
         index, embeddings = build_faiss_index(chunks)
         relevant_chunk = semantic_search(query, chunks, index)
         #print("\nRelevant Chunk:", relevant_chunk)
+        print('finished scanning wikipedia')
+        print("--- %s wiki search ---" % (time.time() - start_time))
         return relevant_chunk
