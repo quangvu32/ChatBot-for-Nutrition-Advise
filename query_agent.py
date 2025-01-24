@@ -4,6 +4,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_ollama import OllamaLLM
 from langchain_core.messages import HumanMessage, AIMessage
+import time
 
 llm = OllamaLLM(model='llama3')
 
@@ -16,6 +17,18 @@ Example Output: [{"food": "apple", "amount": "100 grams"}, {"food": "pineapple j
 
 Example Input: "Yesterday, I ate 250g of broccoli and drank 400ml of milk."
 Example Output: [{"food": "broccoli", "amount": "250 grams"}, {"food": "milk", "amount": "400 milliliters"}]
+
+Example Input : "I just eat a bunch of banana"
+Example Output: [{"food" : "banana", "amount" : "None"}]
+
+Example Input: "Right now I am drinking 3 ounces of milk"
+Example Output: [{"food" : "banana", "amount" : "200 grams"}]
+
+Example Input: "I just had 200g of banana"
+Example Output: [{"food" : "banana", "amount" : "200 grams"}]
+
+Example Input : "Last night I eat a hamburger"
+Example Output: [{"food" : "burger", "amount" : "None"}]
 """
 
 prompt_template = PromptTemplate.from_template(
@@ -27,6 +40,7 @@ Respond in JSON format as a list of dictionaries:
 - "food" is the name of the food item (e.g., "apple").
 - "amount" includes the quantity and unit (e.g., "200 grams").
 
+
 {examples}
 
 User Input: {user_input}
@@ -37,6 +51,7 @@ Response:
 output_parser = StrOutputParser()
 
 def extract_food_with_llm(user_input: str, chat_history: list):
+    start_time = time.time()
     chat_history_str = "\n".join([f"User: {message.content}" if isinstance(message, HumanMessage) else f"Bot: {message.content}" for message in chat_history])
     prompt = prompt_template.format(examples=examples, user_input=user_input)
     
@@ -45,6 +60,7 @@ def extract_food_with_llm(user_input: str, chat_history: list):
     response = llm.invoke(prompt_with_history) 
     
     match = re.search(r'(\[.*\])', response.strip(), re.DOTALL)
+    print("--- %s query agent ---" % (time.time() - start_time))
     if match:
         json_response = match.group(1)
         try:
