@@ -20,7 +20,7 @@
   <tr>
     <th align="left"> Đào Minh Hải </th>
     <th align="left"> 22520379 </th>
-    <th align="left"> <a href="22520379@gm.uit.edu.vn" >21521009@gm.uit.edu.vn</a> </th>
+    <th align="left"> <a href="22520379@gm.uit.edu.vn" >22521009@gm.uit.edu.vn</a> </th>
   </tr>
   <tr>
     <th align="left"> Nguyễn Quang Vũ </th>
